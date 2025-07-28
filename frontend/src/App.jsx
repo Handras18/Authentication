@@ -4,6 +4,7 @@ import SignUpPge from "./pages/SignUpPge";
 import LoginPage from "./pages/LoginPage";
 import { Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
+import EmailVerificationPage from "./pages/EmailVerificationPage";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/signup" element={<SignUpPge />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/verify-email" element={<EmailVerificationPage />}></Route>
       </Routes>
     </div>
   );
