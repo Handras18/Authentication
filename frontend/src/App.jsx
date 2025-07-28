@@ -1,6 +1,6 @@
 import React from "react";
 import FloatingShape from "./components/FloatingShape";
-import SignUpPge from "./pages/SignUpPge";
+import SignUpPge from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import { Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
