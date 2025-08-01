@@ -4,14 +4,16 @@ import { motion } from "framer-motion";
 import Input from "../components/Input";
 import { Loader, Lock, Mail } from "lucide-react";
 import { Link } from "react-router";
+import { useAuthStore } from "../store/authStore";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const isloading = false;
+  const { login, isloading, error } = useAuthStore();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    await login(email, password);
   };
   return (
     <motion.div
@@ -30,14 +32,14 @@ const LoginPage = () => {
             icon={Mail}
             placeholder="Email Address"
             value={email}
-            onChange={(e) => setEmail(e.event.target)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <Input
             type="password"
             icon={Lock}
             placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.event.target)}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           <div className="flex items-center mb-6">
@@ -48,7 +50,7 @@ const LoginPage = () => {
               Forgot password?
             </Link>
           </div>
-
+          {error && <p className="text-red-500 font-semibold mb-2">{error}</p>}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
